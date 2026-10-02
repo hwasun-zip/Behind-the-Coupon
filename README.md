@@ -187,8 +187,7 @@ Behind-the-Coupon/
 │   ├── 02_structure_analysis.ipynb   # 구조별 위험, 발행 시점 조기경보
 │   └── 03_stress_test.ipynb          # 스트레스 테스트, 녹인 터치 모니터링
 ├── src/
-│   └── els_engine.py                 # 상환 엔진 및 지표 함수
-└── output/                           # 분석 결과 CSV
+    └── els_engine.py                 # 상환 엔진 및 지표 함수
 ```
 
 - Google Colab 기준. `01`을 먼저 실행하면 지수 데이터를 내려받아 Google Drive에 캐시하고 엔진을 `src/`에 저장한다. `02`, `03`은 저장된 데이터와 엔진을 불러와 실행한다.

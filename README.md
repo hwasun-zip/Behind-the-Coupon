@@ -32,7 +32,7 @@
 
 ## 2. 방법
 
-### 상환 엔진 (`src/els_engine.py`)
+### 상환 엔진 ([`src/els_engine.py`](src/els_engine.py))
 과거 지수 종가로 **매 거래일 ELS가 1개씩 발행됐다고 가정**하고, 각 회차의 결과를 실제 지수 경로대로 계산한다.
 
 - 구조: 만기 3년, 6개월마다 조기상환 평가, 행사가 90-90-85-85-80-75%, 녹인 50%, worst-of
@@ -50,7 +50,7 @@
 
 ## 3. 결과
 
-### 01. 쿠폰과 실제 성과의 차이 — `notebooks/01_data_and_engine.ipynb`
+### 01. 쿠폰과 실제 성과의 차이 — [`01_data_and_engine.ipynb`](notebooks/01_data_and_engine.ipynb)
 S&P500+EuroStoxx50+HSCEI 조합, 2007~2023년 발행 4,296회차 (쿠폰 6% 가정)
 
 | | 전체 기간 | 2021년 1분기 |
@@ -63,7 +63,7 @@ S&P500+EuroStoxx50+HSCEI 조합, 2007~2023년 발행 4,296회차 (쿠폰 6% 가�
 - 필요 쿠폰(무위험 3% 가정): **연 4.31%**
 - 2021년 1월 7일 발행분은 6개월 만에 조기상환, 1월 8일 발행분은 원금 50% 손실. **기준가격이 찍히는 시점**이 결과를 가른다.
 
-### 02-1. 구조별 위험 — `notebooks/02_structure_analysis.ipynb`
+### 02-1. 구조별 위험 — [`02_structure_analysis.ipynb`](notebooks/02_structure_analysis.ipynb)
 
 **기초자산 조합별** (2007-03-30 이후 발행, 동일 구조)
 
@@ -120,7 +120,7 @@ S&P500+EuroStoxx50+HSCEI 조합, 2007~2023년 발행 4,296회차 (쿠폰 6% 가�
 - 과열 신호는 **먼저 과열된 지수가 무너진 경우**만 잡는다. 급등 없이 온 2008년 체계적 위기는 구조적으로 포착 불가
 - → **조기경보 단독으로는 부족하며 스트레스 테스트로 보완해야 한다**
 
-### 03-1. 스트레스 테스트 — `notebooks/03_stress_test.ipynb`
+### 03-1. 스트레스 테스트 — [`03_stress_test.ipynb`](notebooks/03_stress_test.ipynb)
 위기 직전 고점 부근 ±3개월 발행분의 손실확률
 
 | 조합 | 2008 금융위기 | 2015 중국 쇼크 | 2020 코로나 | 2021 H지수 | 2022 긴축 |
@@ -186,11 +186,11 @@ Behind-the-Coupon/
 │   ├── 01_data_and_engine.ipynb      # 데이터 수집, 상환 엔진, 필요 쿠폰
 │   ├── 02_structure_analysis.ipynb   # 구조별 위험, 발행 시점 조기경보
 │   └── 03_stress_test.ipynb          # 스트레스 테스트, 녹인 터치 모니터링
-├── src/
+└── src/
     └── els_engine.py                 # 상환 엔진 및 지표 함수
 ```
 
-- Google Colab 기준. `01`을 먼저 실행하면 지수 데이터를 내려받아 Google Drive에 캐시하고 엔진을 `src/`에 저장한다. `02`, `03`은 저장된 데이터와 엔진을 불러와 실행한다.
+- Google Colab 기준. `01`을 먼저 실행하면 지수 데이터를 내려받아 Google Drive에 캐시하고 엔진을 `src/`에 저장한다. `02`, `03`은 저장된 데이터와 엔진을 불러와 실행한다. 분석 결과 CSV는 Drive의 `output/`에 저장된다.
 - 데이터 출처: yfinance(S&P500, EuroStoxx50, Nikkei225, HSCEI), FinanceDataReader(KOSPI200)
 
 **Stack**: Python, pandas, NumPy, matplotlib, yfinance, FinanceDataReader
